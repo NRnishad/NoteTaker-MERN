@@ -1,7 +1,7 @@
 import e from 'express';
 import Note from '../models/Note.js';
 
-export const getNotes =async (req, res) => {
+export const getAllNotes =async (req, res) => {
    try{
     const notes = await Note.find();
     res.status(200).json(notes);
@@ -9,6 +9,20 @@ export const getNotes =async (req, res) => {
     console.error(error);
        res.status(500).json({massage:'internal server error'});
    }
+}
+export const getNoteById = async (req, res) => {
+    try {
+        const {id}=req.params
+        const note = await Note.findById(id);
+        if(!note){
+            return res.status(404).json({message:'note not found'})
+        }
+        res.status(200).json(note)
+
+    } catch (error) {
+        console.error('error getting note by id in controller',error);
+       res.status(500).json({massage:'internal server error'});
+    }
 }
 export const createNote = async (req, res) =>   {
  
