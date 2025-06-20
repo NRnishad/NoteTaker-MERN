@@ -9,6 +9,16 @@ export const getNotes =async (req, res) => {
        res.status(500).json({massage:'internal server error'});
    }
 }
-export const createNote = (req, res) => {
-    res.status(201).send('Note created successfully');
+export const createNote = async (req, res) =>   {
+ 
+ try {
+    const{title,content}=req.body
+    const newNote = new Note({title,content});
+    await newNote.save()
+    res.status(201).json({massage:'note created successfully'});
+ } catch (error) {
+     console.error('error getting note in controller',error);
+       res.status(500).json({massage:'internal server error'});
+ }
 }
+    
