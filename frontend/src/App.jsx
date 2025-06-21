@@ -9,8 +9,8 @@ import toast  from 'react-hot-toast'
 function App() {
   return (
     <div>
-      <button onClick={() => toast.success('Hello World!')} className='btn btn-outline m-4'>Click me</button>
-    <Routes>
+      
+    <Routes data-theme='forest'>
       <Route path="/" element={<HomePage />} />
       <Route path="/create" element={<CreatePage />} />
       <Route path="/note/:id" element={<NoteDetailPage />} />
