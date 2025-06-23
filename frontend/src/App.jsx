@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage.jsx'
 import CreatePage from './pages/CreatePage.jsx'
 import NoteDetailPage from './pages/NoteDetailPage.jsx'
 import './App.css'
-import toast  from 'react-hot-toast'
+
 
 function App() {
   return (
