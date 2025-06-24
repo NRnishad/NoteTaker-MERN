@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { PenSquareIcon, TrashIcon } from '@heroicons/react/24/outline'
+import { PenSquareIcon, TrashIcon } from 'lucide-react'
+import { formatDate } from '../lib/utils'
 
 function NoteCard({note}) {
   return (
@@ -9,7 +10,7 @@ function NoteCard({note}) {
             <h3 className='card-title text-base-content'>{note.title}</h3>
             <p className='text-base-content/70 line-clamp-3'>{note.content}</p>
             <div className=' card-actions justify-between mt-4 items-center'>
-                <span className='text-sm text-base-content/60'>{note.content}</span>
+                <span className='text-sm text-base-content/60'>{formatDate(new Date(note.createdAt))}</span>
                 <div className='flex ithems-center gap-1'>
                 <PenSquareIcon className='size-4'/>
                 <button className='btn btn-ghost btn-xs text-error'>
