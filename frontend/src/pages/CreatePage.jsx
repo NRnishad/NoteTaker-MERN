@@ -31,7 +31,10 @@ function CreatePage() {
       toast.success('Note created successfully!')
       navigate('/')
     } catch (error) {
-      console.error('Error creating note:', error)
+     if(error.response && error.response.status === 429){
+        toast.error('You are being rate limited. Please try again later.')
+        return;
+      }
       toast.error('Failed to create note. Please try again later.')
       return;
     }finally{
