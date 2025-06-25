@@ -1,3 +1,7 @@
+# Ignore node_modules and .env in all folders
+**/node_modules/
+**/.env
+
 # Logs
 logs
 *.log
@@ -7,7 +11,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Build output
 dist
 dist-ssr
 *.local
@@ -22,10 +26,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.env
-
-
-# Backend
-backend/.env
-backend/node_modules/
-
